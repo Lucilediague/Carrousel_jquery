@@ -1,0 +1,39 @@
+
+ 
+.prev {
+    margin: 20px;
+    margin-left: 380px;
+    left:-17px;
+	cursor: pointer;
+	float:left;
+     font-size: 50px;
+    font-weight: bold;
+}
+.next {
+    margin: 20px;
+    right:-17px;
+	cursor: pointer;
+	float:left;
+    font-size: 50px;
+   font-weight: bold;
+}
+.carrousel {
+	margin-left: 80px;
+	top:64px;
+	height:600px;
+    width:900px;
+	z-index:1;
+	visibility: visible;
+}
+  
+ ul {   
+   padding:0; 
+   margin:80px;  
+   list-style: none;  
+   margin: auto;
+}  
+
+img {
+    height:600px;
+    width:900px;
+}

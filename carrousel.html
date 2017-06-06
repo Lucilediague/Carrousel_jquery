@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <div id="carrousel">
+    <ul>
+      <li><img src="images/image1.jpg" /></li>
+      <li><img src="images/image2.jpg" /></li>
+      <li><img src="images/image3.jpg" /></li>
+      <li><img src="images/image4.jpg" /></li>
+    </ul>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="bootstrap/js/jquery.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  
+
+
+  <script>
+    $(document).ready(function () {
+
+      var $carrousel = $('#carrousel'),
+        $img = $('#carrousel img'),
+        indexImg = $img.length - 1,
+        i = 0,
+        $currentImg = $img.eq(i);
+
+      $img.css('display', 'none');
+      $currentImg.css('display', 'block');
+      $carrousel.append('<div class="controls"> <span class="prev"><</span> <span class="next">></span> </div>');
+
+      $('.next').click(function () {
+        i++;
+
+        if (i <= indexImg) {
+          $img.css('display', 'none');
+          $currentImg = $img.eq(i);
+          $currentImg.css('display', 'block');
+        }
+
+        else {
+          i = indexImg;
+        }
+      });
+
+      $('.prev').click(function () {
+        i--;
+
+        if (i >= 0) {
+          $img.css('display', 'none');
+          $currentImg = $img.eq(i);
+          $currentImg.css('display', 'block');
+        }
+
+        else {
+          i = 0;
+        }
+      });
+
+
+      function slideImg() {
+        setTimeout(function () {
+
+          if (i < indexImg) {
+            i++;
+          }
+
+          else {
+            i = 0;
+          }
+
+          $img.css('display', 'none');
+          $currentImg = $img.eq(i);
+          $currentImg.css('display', 'block');
+          slideImg();
+        }, 3000);
+      }
+
+      slideImg();
+
+    });
+
+  </script>
+
+</body>
+
+</html>
